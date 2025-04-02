@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Shock Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Economic Shock Simulator</h1>
+            <p>Explore the impacts of various economic shocks on key indicators</p>
+        </header>
+        
+        <div class="simulator-container">
+            <div class="control-panel">
+                <form id="simulatorForm">
+                    <div class="form-group">
+                        <label for="shockType">Shock Type:</label>
+                        <select id="shockType" name="shock_type" required>
+                            <option value="" disabled selected>Select shock type</option>
+                            <!-- Will be populated via JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Direction:</label>
+                        <div class="direction-options">
+                            <div id="increaseOption" class="direction-option increase">
+                                <span class="icon">↑</span>
+                                <span class="label">Increase</span>
+                                <input type="radio" id="directionIncrease" name="direction" value="increase" checked style="display: none;">
+                            </div>
+                            <div id="decreaseOption" class="direction-option decrease">
+                                <span class="icon">↓</span>
+                                <span class="label">Decrease</span>
+                                <input type="radio" id="directionDecrease" name="direction" value="decrease" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="simulate-button">Simulate</button>
+                </form>
+            </div>
+            
+            <div id="results" class="results-container" style="display: none;">
+                <h2>Economic Impact:</h2>
+                <div id="resultsContent" class="results-content">
+                    <!-- Results will be displayed here -->
+                </div>
+                
+                <div class="model-graphs">
+                    <h2>Economic Models:</h2>
+                    <div class="graph-container">
+                        <div class="graph-card">
+                            <h3>AD-AS Model</h3>
+                            <div class="graph">
+                                <canvas id="adAsCanvas"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="graph-card">
+                            <h3>IS-LM Model</h3>
+                            <div class="graph">
+                                <canvas id="isLmCanvas"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="graph-card">
+                            <h3>Phillips Curve</h3>
+                            <div class="graph">
+                                <canvas id="phillipsCanvas"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="graph-card">
+                            <h3>Production Possibilities Frontier</h3>
+                            <div class="graph">
+                                <canvas id="ppfCanvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="conclusionSection" class="conclusion-section" style="display: none;">
+                    <h2>Conclusion & Analysis:</h2>
+                    <div class="conclusion-container">
+                        <div class="conclusion-card">
+                            <h3>Short-Term Effects</h3>
+                            <p id="shortTermConclusion"></p>
+                        </div>
+                        
+                        <div class="conclusion-card">
+                            <h3>Long-Term Effects</h3>
+                            <p id="longTermConclusion"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This simulator presents simplified economic models for educational purposes and theoretical analysis.</p>
+            <p style="margin-top: 10px; font-weight: 500;">Developed by Andre P.</p>
+        </div>
+    </div>
+
+    <script src="shocks.js"></script>
+    <script src="graphs.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
